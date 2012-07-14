@@ -1,8 +1,8 @@
 package com.miguelerm.conversor.models;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 /**
  * Modelo que define el tipo de unidad de medida (longitud, temperatura, peso, etc.).
@@ -14,9 +14,16 @@ public class MeasurementUnitType {
 
 	private int id;
 	private String name;
-	private ArrayList<MeasurementUnit> units;
+	private Collection<MeasurementUnit> units;
 	private boolean visible;
 	
+	
+	
+	public MeasurementUnitType(String name) {
+		this.name = name;
+		this.units = new ArrayList<MeasurementUnit>();
+	}
+
 	public boolean isVisible() {
 		return visible;
 	}
@@ -25,10 +32,6 @@ public class MeasurementUnitType {
 		this.visible = visible;
 	}
 
-	public MeasurementUnitType() {
-		this.units = new ArrayList<MeasurementUnit>();
-	}
-	
 	public int getId() {
 		return id;
 	}
@@ -45,8 +48,18 @@ public class MeasurementUnitType {
 		this.name = name;
 	}
 	
-	public List<MeasurementUnit> getUnits() {
-		return Collections.unmodifiableList(this.units);
+	public Collection<MeasurementUnit> getUnits() {
+		return Collections.unmodifiableCollection(this.units);
+	}
+
+	public void addMeasurementUnit(MeasurementUnit measurementUnit) {
+		measurementUnit.setType(this);
+		this.units.add(measurementUnit);
 	}
 	
+	public MeasurementUnitType include(MeasurementUnit measurementUnit) {
+		this.addMeasurementUnit(measurementUnit);
+		return this;
+	}
+		
 }

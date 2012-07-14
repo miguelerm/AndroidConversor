@@ -10,7 +10,7 @@ public class ConversionTests extends TestCase {
 	public void test_FluentApi_SetSourceUnit() {
 		
 		//Arrange
-		MeasurementUnit kilometers = new MeasurementUnit();
+		MeasurementUnit kilometers = new MeasurementUnit("Kilometers");
 		
 		//Act
 		Conversion conversion = new Conversion().from(kilometers);
@@ -23,7 +23,7 @@ public class ConversionTests extends TestCase {
 	public void test_FluentApi_SetDestinationUnit() {
 		
 		//Arrange
-		MeasurementUnit meters = new MeasurementUnit();
+		MeasurementUnit meters = new MeasurementUnit("Meters");
 		
 		//Act
 		Conversion conversion = new Conversion().to(meters);
@@ -49,8 +49,8 @@ public class ConversionTests extends TestCase {
 	public void test_FluentApi_SetSourceAndDestinationUnit() {
 		
 		//Arrange
-		MeasurementUnit kilometers = new MeasurementUnit();
-		MeasurementUnit meters = new MeasurementUnit();
+		MeasurementUnit kilometers = new MeasurementUnit("Kilometers");
+		MeasurementUnit meters = new MeasurementUnit("Meters");
 		String formula = "x*1000";
 		
 		//Act

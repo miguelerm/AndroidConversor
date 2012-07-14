@@ -14,6 +14,15 @@ public class MeasurementUnit {
 	private MeasurementUnitType type;
 	private boolean visible;
 	
+	public MeasurementUnit(String name) {
+		this.name = name;
+	}
+	
+	public MeasurementUnit(String name, MeasurementUnitType type) {
+		this.name = name;
+		this.type = type;
+	}
+
 	public boolean isVisible() {
 		return visible;
 	}
